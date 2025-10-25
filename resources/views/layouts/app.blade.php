@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Marketing</title>
+
+    <link rel="icon" href="{{ asset('dash/favicons/991-img-logo.png') }}" type="image/png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ asset('dash/css/css-bootstrap1.min.css') }}">
+    <!-- themefy CSS -->
+    <link rel="stylesheet" href="{{ asset('dash/css/themefy_icon-themify-icons.css') }}">
+    <!-- select2 CSS -->
+    <link rel="stylesheet" href="{{ asset('dash/css/css-nice-select.css') }}">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="{{ asset('dash/css/css-owl.carousel.css') }}">
+    <!-- gijgo css -->
+    <link rel="stylesheet" href="{{ asset('dash/css/gijgo-gijgo.min.css') }}">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="{{ asset('dash/css/css-font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('dash/css/tagsinput-tagsinput.css') }}">
+
+    <!-- date picker -->
+     <link rel="stylesheet" href="{{ asset('dash/css/datepicker-date-picker.css') }}">
+     <!-- scrollabe  -->
+     <link rel="stylesheet" href="{{ asset('dash/css/scroll-scrollable.css') }}">
+    <!-- datatable CSS -->
+    <link rel="stylesheet" href="{{ asset('dash/css/css-jquery.dataTables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('dash/css/css-responsive.dataTables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('dash/css/css-buttons.dataTables.min.css') }}">
+    <!-- text editor css -->
+    <link rel="stylesheet" href="{{ asset('dash/css/text_editor-summernote-bs4.css') }}">
+    <!-- morris css -->
+    <link rel="stylesheet" href="{{ asset('dash/css/morris-morris.css') }}">
+    <!-- metarial icon css -->
+    <link rel="stylesheet" href="{{ asset('dash/css/material_icon-material-icons.css') }}">
+
+    <!-- menu css  -->
+    <link rel="stylesheet" href="{{ asset('dash/css/css-metisMenu.css') }}">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="{{ asset('dash/css/css-style1.css') }}">
+    <link rel="stylesheet" href="{{ asset('dash/css/colors-default.css') }}" id="colorSkinCSS">
+</head>
+<body class="crm_body_bg">
+    
+
+
+<!-- main content part here -->
+ 
+ <!-- sidebar  -->
+ <!-- sidebar part here -->
+@include('layouts.sidebar')
+<!-- sidebar part end -->
+ <!--/ sidebar  -->
+
+
+<section class="main_content dashboard_part large_header_bg">
+        <!-- menu  -->
+    @include('layouts.navbar')
+    <!--/ menu  -->
+    <div class="main_content_iner ">
+        <div class="container-fluid p-0 ">
+            @yield('content')            
+        </div>
+    </div>
+
+<!-- footer part -->
+<div class="footer_part">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="footer_iner text-center">
+                    <p>2025 &copy; Designed by <a href="#"> Kelompok 6 AKPSI</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<!-- main content part end -->
+
+<!-- ### CHAT_MESSAGE_BOX   ### -->
+
+
+
+<!--/### CHAT_MESSAGE_BOX  ### -->
+
+<div id="back-top" style="display: none;">
+    <a title="Go to Top" href="#">
+        <i class="ti-angle-up"></i>
+    </a>
+</div>
+
+<!-- footer  -->
+<script src="{{ asset('dash/js/7585-js-jquery1-3.4.1.min.js') }}"></script>
+<!-- popper js -->
+<script src="{{ asset('dash/js/6871-js-popper1.min.js') }}"></script>
+<!-- bootstarp js -->
+<script src="{{ asset('dash/js/2924-js-bootstrap1.min.js') }}"></script>
+<!-- sidebar menu  -->
+<script src="{{ asset('dash/js/2850-js-metisMenu.js') }}"></script>
+<!-- waypoints js -->
+<script src="{{ asset('dash/js/count_up-jquery.waypoints.min.js') }}"></script>
+<!-- waypoints js -->
+<script src="{{ asset('dash/js/chartlist-Chart.min.js') }}"></script>
+<!-- counterup js -->
+<script src="{{ asset('dash/js/count_up-jquery.counterup.min.js') }}"></script>
+
+<!-- nice select -->
+<script src="{{ asset('dash/js/js-jquery.nice-select.min.js') }}"></script>
+<!-- owl carousel -->
+<script src="{{ asset('dash/js/js-owl.carousel.min.js') }}"></script>
+
+<!-- responsive table -->
+<script src="{{ asset('dash/js/js-jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('dash/js/js-dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('dash/js/js-dataTables.buttons.min.js') }}"></script>
+<script src="{{ asset('dash/js/js-buttons.flash.min.js') }}"></script>
+<script src="{{ asset('dash/js/js-jszip.min.js') }}"></script>
+<script src="{{ asset('dash/js/js-pdfmake.min.js') }}"></script>
+<script src="{{ asset('dash/js/js-vfs_fonts.js') }}"></script>
+<script src="{{ asset('dash/js/js-buttons.html5.min.js') }}"></script>
+<script src="{{ asset('dash/js/js-buttons.print.min.js') }}"></script>
+
+
+<script src="{{ asset('dash/js/9472-js-chart.min.js') }}"></script>
+<!-- progressbar js -->
+<script src="{{ asset('dash/js/progressbar-jquery.barfiller.js') }}"></script>
+<!-- tag input -->
+<script src="{{ asset('dash/js/tagsinput-tagsinput.js') }}"></script>
+<!-- text editor js -->
+<script src="{{ asset('dash/js/text_editor-summernote-bs4.js') }}"></script>
+<script src="{{ asset('dash/js/am_chart-amcharts.js') }}"></script>
+
+<!-- scrollabe  -->
+<script src="{{ asset('dash/js/scroll-perfect-scrollbar.min.js') }}"></script>
+<script src="{{ asset('dash/js/scroll-scrollable-custom.js') }}"></script>
+
+
+<script src="{{ asset('dash/js/chart_am-core.js') }}"></script>
+<script src="{{ asset('dash/js/chart_am-charts.js') }}"></script>
+<script src="{{ asset('dash/js/chart_am-animated.js') }}"></script>
+<script src="{{ asset('dash/js/chart_am-kelly.js') }}"></script>
+<script src="{{ asset('dash/js/chart_am-chart-custom.js') }}"></script>
+<!-- custom js -->
+<script src="{{ asset('dash/js/9118-js-custom.js') }}"></script>
+</body>
+</html>

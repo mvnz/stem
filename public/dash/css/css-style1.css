@@ -359,6 +359,13 @@ table.dataTable tbody th, table.dataTable tbody td {
   vertical-align: middle;
 }
 
+
+/*------------------------------------------------  Common CSS End -------------------------------------------------*/
+
+
+
+
+
 /* line 211, G:/admin_project/6 admin/marketing/scss/_reset.scss */
 .mt_40 {
   margin-top: 40px;
@@ -12206,3 +12213,13 @@ a.pswp__share--download:hover {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+
+.text-end {
+  text-align: center !important;
+}
+
+.action_btns {
+  justify-content: center;
+  gap: 10px; /* jarak antar tombol */
+}

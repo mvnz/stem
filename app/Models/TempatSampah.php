@@ -4,11 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Tower extends Model
+class TempatSampah extends Model
 {
     protected $fillable = [
-        'nama_tower',
-        'jumlah_lantai',
+        'nama_tempat_sampah',
+        'id_tower',
+        'lantai',
+        'id_sensor',
         'status',
     ];
 }

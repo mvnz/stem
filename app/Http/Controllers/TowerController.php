@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tower;
 use Illuminate\Http\Request;
-use illuminate\validate\Rule;
+use illuminate\Validate\Rule;
 
 class TowerController extends Controller
 {
@@ -24,34 +24,36 @@ class TowerController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'nama_tower' => 'required|string|max:100',
-            'jumlah_lantai' => 'required|int|max:2',
-            'status' => 'required|in:active,inactive',
+            'jumlah_lantai' => 'required|int|min:1|max:99',
+            'status' => 'required|in:Active,Inactive',
         ]);
 
-        Tower::create($request->validate());
+        Tower::create($validated);
 
-        return redirect()->route('towers.index')->with('success', 'Tower berhasil ditambahkan');
+        return redirect()->route('tower.index')->with('success', 'Tower berhasil ditambahkan');
     }
 
     public function edit($id){
-        $towers = Tower::findOrFail($id);
+        $tower = Tower::findOrFail($id);
 
-        return view('towers.edit', compact('towers'));
+        return view('towers.edit', compact('tower'));
     }
 
     public function update(Request $request, $id)
     {
-        $request->validate([
+        $towers = Tower::findOrFail($id);
+
+        $validated = $request->validate([
             'nama_tower' => 'required|string|max:100',
-            'jumlah_lantai' => 'required|int|max:2',
-            'status' => 'required|in:active,inactive',
+            'jumlah_lantai' => 'required|int|min:1|max:99',
+            'status' => 'required|in:Active,Inactive',
         ]);
 
-        Tower::findOrFail($id)->update($request->validate());
+        $towers->update($validated);
 
-        return redirect()->route('towers.index')->with('success', 'Tower berhasil diubah');
+        return redirect()->route('tower.index')->with('success', 'Tower berhasil diubah');
     }
 
     public function destroy($id)
@@ -59,7 +61,7 @@ class TowerController extends Controller
         $towers = Tower::findOrFail($id);
         $towers->delete();
 
-        return redirect()->route('towers.index')->with('success', 'Tower berhasil dihapus');
+        return redirect()->route('tower.index')->with('success', 'Tower berhasil dihapus');
     }
 
 

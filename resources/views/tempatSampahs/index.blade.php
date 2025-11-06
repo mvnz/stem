@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-12">
-            <h1>Tower</h1>
+            <h1>Tempat Sampah</S></h1>
         </div>
     </div>
     <div class="row justify-content-center">
@@ -12,8 +12,8 @@
                         <div class="white_card_header">
                             <div class="box_header m-0">
                                 <div class="main-title">
-                                    <h3 class="m-0">Data tower area Apartemen Kalibata City, Jakarta. <p>Berisi tentang nama tower, jumlah lantai dan status 
-                                        tower apakah aktif atau tidak (dalam pembangunan/renovasi).
+                                    <h3 class="m-0">Data tempat sampah area Apartemen Kalibata City, Jakarta. <p>Berisi tentang lokasi nama tempat sampah, lokasi tempat sampah pada tower
+                                        dan lantai berapa serta status tempat sampah (aktif/tidak aktif).
                                     </h3>
                                 </div>
                             </div>
@@ -21,7 +21,7 @@
                         <div class="white_card_body">
                             <div class="QA_section">
                                 <div class="white_box_tittle list_header">
-                                    <a href="/tower/create" class="btn btn-success btn-sm rounded-pill text-white"><i class="ti-plus me-2"></i> Tambah</a>
+                                    <a href="/tempatSampah/create" class="btn btn-success btn-sm rounded-pill text-white"><i class="ti-plus me-2"></i> Tambah</a>
                                     <div class="box_right d-flex lms_block">
                                         <div class="serach_field_2">
                                             <div class="search_inner">
@@ -45,23 +45,27 @@
                                         <thead>
                                             <tr class="text-end">
                                                 <th scope="col">No. </th>
-                                                <th scope="col">Nama Tower</th>
-                                                <th scope="col">Jumlah Lantai</th>
+                                                <th scope="col">Nama Tempat Sampah</th>
+                                                <th scope="col">Tower</th>
+                                                <th scope="col">Lantai</th>
+                                                <th scope="col">Sensor</th>
                                                 <th scope="col">Status</th>
                                                 <th scope="col">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($towers as $item)
+                                            @foreach ($tempatSampahs as $item)
                                             <tr class="text-end">
                                                 <td>{{ $item->id }}</td>
-                                                <td>{{ $item->nama_tower }}</td>
-                                                <td>{{ $item->jumlah_lantai }}</td>
+                                                <td>{{ $item->nama_tempat_sampah }}</td>
+                                                <td>{{ $item->id_tower }}</td>
+                                                <td>{{ $item->lantai }}</td>
+                                                <td>{{ $item->id_sensor }}</td>
                                                 <td>{{ $item->status == 'Active' ? 'Aktif' : 'Tidak Aktif' }}</td>
                                                 <td>
                                                     <div class="action_btns d-flex">
-                                                        <a href="{{ route('tower.edit', $item->id) }}" class="d-inline-block me-2 btn btn-warning btn-sm rounded-pill text-white"><i class="ti-pencil mr-2"></i> Ubah</a>
-                                                        <form action="{{ route('tower.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Yakin hapus tower ini?')" class="d-inline">
+                                                        <a href="{{ route('tempatSampah.edit', $item->id) }}" class="d-inline-block me-2 btn btn-warning btn-sm rounded-pill text-white"><i class="ti-pencil mr-2"></i> Ubah</a>
+                                                        <form action="{{ route('tempatSampah.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Yakin hapus tempat sampah ini?')" class="d-inline">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger btn-sm rounded-pill"><i class="ti-trash me-1"></i> Hapus

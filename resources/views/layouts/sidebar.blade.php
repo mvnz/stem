@@ -44,6 +44,7 @@
           </a>
           <ul>
             <li><a href="#">Insiden</a></li>
+            <li><a href="#">Notifikasi</a></li>  
             <li><a href="#">Activity Log</a></li>
             <li><a href="#">User Log</a></li>
           </ul>
@@ -58,13 +59,12 @@
             <span>Master Data</span>
           </a>
           <ul>
+            <li><a href="/tower">Tower</a></li>
+            <li><a href="/tempatSampah">Tempat Sampah</a></li>
+            <li><a href="/sensor">Sensor Iot</a></li>
+            <li><a href="#">Mesin Pemilah</a></li>
             <li><a href="#">Pegawai</a></li>
             <li><a href="#">User</a></li>
-            <li><a href="/tower">Tower</a></li>
-            <li><a href="#">Tempat Sampah</a></li>
-            <li><a href="#">Jenis Sampah</a></li>
-            <li><a href="#">Sensor Iot</a></li>
-            <li><a href="#">Mesin Pemilah</a></li>
           </ul>
         </li>
         
@@ -80,6 +80,8 @@
               <li><a href="#">Klasifikasi</a></li>
             </ul>
           </li>
+
+          
 
       </ul>
     

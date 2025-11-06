@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Marketing</title>
+    <title>STEM - Smart Waste Management System</title>
 
     <link rel="icon" href="{{ asset('dash/favicons/991-img-logo.png') }}" type="image/png">
     <!-- Bootstrap CSS -->
@@ -42,6 +42,9 @@
     <!-- style CSS -->
     <link rel="stylesheet" href="{{ asset('dash/css/css-style1.css') }}">
     <link rel="stylesheet" href="{{ asset('dash/css/colors-default.css') }}" id="colorSkinCSS">
+
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 <body class="crm_body_bg">
     
@@ -86,12 +89,6 @@
 
 
 <!--/### CHAT_MESSAGE_BOX  ### -->
-
-<div id="back-top" style="display: none;">
-    <a title="Go to Top" href="#">
-        <i class="ti-angle-up"></i>
-    </a>
-</div>
 
 <!-- footer  -->
 <script src="{{ asset('dash/js/7585-js-jquery1-3.4.1.min.js') }}"></script>
@@ -146,5 +143,25 @@
 <script src="{{ asset('dash/js/chart_am-chart-custom.js') }}"></script>
 <!-- custom js -->
 <script src="{{ asset('dash/js/9118-js-custom.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+<style>
+.lms_table_active th,
+.lms_table_active td {
+  font-size: 14px !important; /* pakai !important biar pasti override */
+  color: #212529; /* biar kontras jelas */
+  vertical-align: middle;
+}
+
+.lms_table_active {
+  border-collapse: collapse;
+  width: 100%;
+  border-top: 2px solid #dee2e6;   /* garis atas */
+  border-bottom: 2px solid #2a2a2b; /* garis bawah */
+}
+
+</style>
+
+
 </body>
 </html>

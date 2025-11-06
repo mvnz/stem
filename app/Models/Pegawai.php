@@ -4,11 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Sensor extends Model
+class Pegawai extends Model
 {
     protected $fillable = [
-        'nama_sensor',
-        'threshold',
+        'nama_pegawai',
+        'alamat',
+        'no_telp',
+        'unit_kerja',
         'status',
     ];
 }

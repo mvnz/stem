@@ -13,4 +13,14 @@ class TempatSampah extends Model
         'id_sensor',
         'status',
     ];
+
+    public function tower()
+    {
+        return $this->belongsTo(Tower::class, 'id_tower');
+    }
+
+    public function sensor()
+    {
+        return $this->belongsTo(Sensor::class, 'id_sensor');
+    }
 }

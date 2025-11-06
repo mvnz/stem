@@ -54,13 +54,13 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($tempatSampahs as $item)
+                                            @foreach ($tempatSampahs as $index => $item)
                                             <tr class="text-end">
-                                                <td>{{ $item->id }}</td>
+                                                <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $item->nama_tempat_sampah }}</td>
-                                                <td>{{ $item->id_tower }}</td>
+                                                <td>{{ $item->tower->nama_tower }}</td>
                                                 <td>{{ $item->lantai }}</td>
-                                                <td>{{ $item->id_sensor }}</td>
+                                                <td>{{ $item->sensor->nama_sensor }}</td>
                                                 <td>{{ $item->status == 'Active' ? 'Aktif' : 'Tidak Aktif' }}</td>
                                                 <td>
                                                     <div class="action_btns d-flex">

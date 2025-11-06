@@ -60,10 +60,10 @@
           </a>
           <ul>
             <li><a href="/tower">Tower</a></li>
-            <li><a href="/tempatSampah">Tempat Sampah</a></li>
             <li><a href="/sensor">Sensor Iot</a></li>
-            <li><a href="#">Mesin Pemilah</a></li>
-            <li><a href="#">Pegawai</a></li>
+            <li><a href="/tempatSampah">Tempat Sampah</a></li>
+            <li><a href="/mesinPemilah">Mesin Pemilah</a></li>
+            <li><a href="/pegawai">Pegawai</a></li>
             <li><a href="#">User</a></li>
           </ul>
         </li>

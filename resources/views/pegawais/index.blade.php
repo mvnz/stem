@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-12">
-            <h1>Sensor IoT</h1>
+            <h1>Pegawai</h1>
         </div>
     </div>
     <div class="row justify-content-center">
@@ -12,8 +12,7 @@
                         <div class="white_card_header">
                             <div class="box_header m-0">
                                 <div class="main-title">
-                                    <h3 class="m-0">Data Sensor IoT di area Apartemen Kalibata City, Jakarta. <p>Berisi tentang lokasi nama sensor dan 
-                                        threshold untuk sensor tempat sampah serta status sensor (aktif/tidak aktif).
+                                    <h3 class="m-0">Data Pegawai di area Apartemen Kalibata City, Jakarta. <p>Berisi tentang nama pegawai, alamat, no telepon, unit kerja serta status pegawai (aktif/tidak aktif).
                                     </h3>
                                 </div>
                             </div>
@@ -21,7 +20,7 @@
                         <div class="white_card_body">
                             <div class="QA_section">
                                 <div class="white_box_tittle list_header">
-                                    <a href="/sensor/create" class="btn btn-success btn-sm rounded-pill text-white"><i class="ti-plus me-2"></i> Tambah</a>
+                                    <a href="/pegawai/create" class="btn btn-success btn-sm rounded-pill text-white"><i class="ti-plus me-2"></i> Tambah</a>
                                     <div class="box_right d-flex lms_block">
                                         <div class="serach_field_2">
                                             <div class="search_inner">
@@ -45,23 +44,27 @@
                                         <thead>
                                             <tr class="text-end">
                                                 <th scope="col">No. </th>
-                                                <th scope="col">Nama Sensor</th>
-                                                <th scope="col">Threshold (dalam cm)</th>
+                                                <th scope="col">Nama Pegawai</th>
+                                                <th scope="col">Alamat</th>
+                                                <th scope="col">No Telepon</th>
+                                                <th scope="col">Unit Kerja</th>
                                                 <th scope="col">Status</th>
                                                 <th scope="col">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($sensors as $index =>$item)
+                                            @foreach ($pegawais as $index =>$item)
                                             <tr class="text-end">
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $item->nama_sensor }}</td>
-                                                <td>{{ $item->threshold }}</td>
+                                                <td>{{ $item->nama_pegawai }}</td>
+                                                <td>{{ $item->alamat }}</td>
+                                                <td>{{ $item->no_telp }}</td>
+                                                <td>{{ $item->unit_kerja }}</td>
                                                 <td>{{ $item->status == 'Active' ? 'Aktif' : 'Tidak Aktif' }}</td>
                                                 <td>
                                                     <div class="action_btns d-flex">
-                                                        <a href="{{ route('sensor.edit', $item->id) }}" class="d-inline-block me-2 btn btn-warning btn-sm rounded-pill text-white"><i class="ti-pencil mr-2"></i> Ubah</a>
-                                                        <form action="{{ route('sensor.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Yakin hapus sensor ini?')" class="d-inline">
+                                                        <a href="{{ route('pegawai.edit', $item->id) }}" class="d-inline-block me-2 btn btn-warning btn-sm rounded-pill text-white"><i class="ti-pencil mr-2"></i> Ubah</a>
+                                                        <form action="{{ route('pegawai.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Yakin hapus pegawai ini?')" class="d-inline">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger btn-sm rounded-pill"><i class="ti-trash me-1"></i> Hapus

@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-12">
-            <h1>Tambah Tempat Sampah</h1>
+            <h1>Tambah Pegawai</h1>
         </div>
     </div>
     <div class="row justify-content-center">
@@ -12,56 +12,45 @@
                 <div class="white_card_header">
                     <div class="box_header m-0">
                         <div class="main-title">
-                            <h3 class="m-0">Form Tambah Tempat Sampah</h3>
+                            <h3 class="m-0">Form Tambah Pegawai</h3>
                         </div>
                     </div>
                 </div>
                 <div class="white_card_body">
                     <div class="QA_section">
-                        <form action="{{ route('tempatSampah.store') }}" method="POST">
+                        <form action="{{ route('pegawai.store') }}" method="POST">
                             @csrf
                             <div class="mb-3">
-                                <label for="nama_tempat_sampah" class="form-label ">Nama Tempat Sampah</label>
-                                <input type="text" class="form-control @error('nama_tempat_sampah') is-invalid @enderror" value="{{ old('nama_tempat_sampah') }}" id="nama_tempat_sampah" name="nama_tempat_sampah" required>
-                                @error('nama_tempat_sampah')
+                                <label for="nama_pegawai" class="form-label ">Nama Pegawai</label>
+                                <input type="text" class="form-control @error('nama_pegawai') is-invalid @enderror" value="{{ old('nama_pegawai') }}" id="nama_pegawai" name="nama_pegawai" required>
+                                @error('nama_pegawai')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="alamat" class="form-label ">Alamat</label>
+                                <input type="text" class="form-control @error('alamat') is-invalid @enderror" value="{{ old('alamat') }}" id="alamat" name="alamat" required>
+                                @error('alamat')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="row mb-3">
                             <div class="col-md-6">
-                                <label for="jumlah_lantai" class="form-label">Tower</label>
-                                <select class="form-select @error('id_tower') is-invalid @enderror" id="id_tower" name="id_tower" required>
-                                    <option value="" disabled selected>Pilih Nama Tower</option>
-                                @foreach ($towers as $tower)
-                                    <option value="{{ $tower->id }}" @selected(old('id_tower') == $tower->id)>{{ $tower->nama_tower }}</option>
-                                @endforeach
-                                </select>
-                                @error('id_tower')
+                                <label for="no_telp" class="form-label">No Telepon</label>
+                                <input type="text" class="form-control @error('no_telp') is-invalid @enderror" value="{{ old('no_telp') }}" id="no_telp" name="no_telp" required>
+                                @error('no_telp')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
-
                             <div class="col-md-6">
-                                <label for="status" class="form-label">Lantai</label>
-                                <input type="number" class="form-control @error('lantai') is-invalid @enderror" value="{{ old('lantai') }}" id="lantai" name="lantai" required>
-                                @error('lantai')
+                                <label for="unit_kerja" class="form-label">Unit Kerja</label>
+                                <input type="text" class="form-control @error('unit_kerja') is-invalid @enderror" value="{{ old('unit_kerja') }}" id="unit_kerja" name="unit_kerja" required>
+                                @error('unit_kerja')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                             </div>
                             <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label for="status" class="form-label">Sensor IoT</label>
-                                <select class="form-select @error('id_sensor') is-invalid @enderror" id="id_sensor" name="id_sensor" required>
-                                    <option value="" disabled selected>Pilih Sensor IoT</option>
-                                @foreach ($sensors as $sensor)
-                                    <option value="{{ $sensor->id }}" @selected(old('id_sensor') == $sensor->id)>{{ $sensor->nama_sensor }}</option>
-                                @endforeach
-                                </select>
-                                @error('id_sensor')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
                             <div class="col-md-6">
                                 <label for="status" class="form-label">Status</label>
                                 <select class="form-select @error('status') is-invalid @enderror" id="status" name="status" required>
@@ -85,7 +74,7 @@
                             </div>
                             </div>
                             <div class="action_btns d-flex">
-                                <a href="/tempatSampah" class="btn btn-secondary rounded-pill text-white mt-3 me-2"><i class="ti-angle-left mr-2"></i> Kembali</a>
+                                <a href="/pegawai" class="btn btn-secondary rounded-pill text-white mt-3 me-2"><i class="ti-angle-left mr-2"></i> Kembali</a>
                                 <button type="submit" class="btn btn-success rounded-pill mt-3"><i class="ti-save"></i> Simpan</button>
                             </div>
                         </form>

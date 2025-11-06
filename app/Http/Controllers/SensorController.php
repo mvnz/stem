@@ -18,7 +18,7 @@ class SensorController extends Controller
 
     public function create()
     {
-        return view('towers.create');
+        return view('sensors.create');
     }
 
     public function store(Request $request)

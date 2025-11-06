@@ -52,9 +52,9 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($towers as $item)
+                                            @foreach ($towers as $index => $item)
                                             <tr class="text-end">
-                                                <td>{{ $item->id }}</td>
+                                                <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $item->nama_tower }}</td>
                                                 <td>{{ $item->jumlah_lantai }}</td>
                                                 <td>{{ $item->status == 'Active' ? 'Aktif' : 'Tidak Aktif' }}</td>

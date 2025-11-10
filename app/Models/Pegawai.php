@@ -13,4 +13,9 @@ class Pegawai extends Model
         'unit_kerja',
         'status',
     ];
+
+    public function jadwalPikets()
+    {
+        return $this->hasMany(JadwalPiket::class, 'pegawai_id');
+    }
 }

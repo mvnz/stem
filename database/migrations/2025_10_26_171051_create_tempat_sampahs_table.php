@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('tempat_sampahs', function (Blueprint $table) {
             $table->id();
             $table->string('nama_tempat_sampah', 100);
-            $table->integer('id_tower');
+            $table->foreignId('id_tower')->constrained('towers')->onDelete('cascade');
             $table->integer('lantai');
-            $table->string('id_sensor');
+            $table->foreignId('id_sensor')->constrained('sensors')->onDelete('cascade');
             $table->enum('status', ['Active', 'Inactive'])->default('Active');
            $table->timestamps();
         });

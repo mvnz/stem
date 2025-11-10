@@ -18,9 +18,11 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
-        'email',
+        'pegawai_id',
+        'username',
         'password',
+        'role',
+        'status',
     ];
 
     /**
@@ -44,5 +46,10 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function pegawai()
+    {
+        return $this->belongsTo(Pegawai::class, 'pegawai_id');
     }
 }

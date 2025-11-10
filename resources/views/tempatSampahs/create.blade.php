@@ -51,7 +51,7 @@
                             </div>
                             <div class="row mb-3">
                             <div class="col-md-6">
-                                <label for="status" class="form-label">Sensor IoT</label>
+                                <label for="sensor" class="form-label">Sensor IoT</label>
                                 <select class="form-select @error('id_sensor') is-invalid @enderror" id="id_sensor" name="id_sensor" required>
                                     <option value="" disabled selected>Pilih Sensor IoT</option>
                                 @foreach ($sensors as $sensor)

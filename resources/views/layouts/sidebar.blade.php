@@ -13,8 +13,7 @@
               <img src="{{ asset('dash/images/menu-icon-dashboard.svg') }}" alt="">
         </div>
             <span>Dashboard</span>
-          </a>
-          
+          </a>          
         </li>
         <li class="">
             <a class="" href="#" aria-expanded="false">
@@ -25,20 +24,26 @@
             </a>
           </li>
         <li class="">
-          <a class="" href="#" aria-expanded="false">
-            
+          <a class="" href="#" aria-expanded="false">            
             <div class="icon_menu">
                 <img src="{{ asset('dash/images/menu-icon-3.svg') }}" alt="">
             </div>
             <span>Pemilahan</span>
-          </a>
-          
+          </a>          
         </li>
         <li class="">
-          <a class="has-arrow" href="#" aria-expanded="false">
-            
+          <a class="" href="/jadwalPiket" aria-expanded="false">            
             <div class="icon_menu">
                 <img src="{{ asset('dash/images/menu-icon-4.svg') }}" alt="">
+            </div>
+            <span>Jadwal Piket</span>
+          </a>      
+              
+        </li>
+        <li class="">
+          <a class="has-arrow" href="#" aria-expanded="false">            
+            <div class="icon_menu">
+                <img src="{{ asset('dash/images/menu-icon-7.svg') }}" alt="">
             </div>
             <span>Report</span>
           </a>
@@ -64,7 +69,7 @@
             <li><a href="/tempatSampah">Tempat Sampah</a></li>
             <li><a href="/mesinPemilah">Mesin Pemilah</a></li>
             <li><a href="/pegawai">Pegawai</a></li>
-            <li><a href="#">User</a></li>
+            <li><a href="/user">User</a></li>
           </ul>
         </li>
         

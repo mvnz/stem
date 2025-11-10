@@ -50,3 +50,16 @@ Route::post('/pegawai', [App\Http\Controllers\PegawaiController::class, 'store']
 Route::get('/pegawai/edit/{id}', [App\Http\Controllers\PegawaiController::class, 'edit'])->name('pegawai.edit');
 Route::put('/pegawai/update/{id}', [App\Http\Controllers\PegawaiController::class, 'update'])->name('pegawai.update');
 Route::delete('/pegawai/delete/{id}', [App\Http\Controllers\PegawaiController::class, 'destroy'])->name('pegawai.destroy');
+
+Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user.index');
+Route::get('/user/create', [App\Http\Controllers\UserController::class, 'create'])->name('user.create');
+Route::post('/user', [App\Http\Controllers\UserController::class, 'store'])->name('user.store');
+Route::get('/user/edit/{id}', [App\Http\Controllers\UserController::class, 'edit'])->name('user.edit');
+Route::put('/user/update/{id}', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');   
+Route::delete('/user/delete/{id}', [App\Http\Controllers\UserController::class, 'destroy'])->name('user.destroy');  
+
+Route::get('/jadwalPiket', [App\Http\Controllers\JadwalPiketController::class, 'index'])->name('jadwalPiket.index');
+Route::post('/jadwalPiket/generate', [App\Http\Controllers\JadwalPiketController::class, 'generate'])->name('jadwalPiket.generate');
+Route::get('/jadwalPiket/create', [App\Http\Controllers\JadwalPiketController::class, 'create'])->name('jadwalPiket.create');
+Route::get('/jadwalPiket/edit/{id}', [App\Http\Controllers\JadwalPiketController::class, 'edit'])->name('jadwalPiket.edit');
+Route::put('/jadwalPiket/update/{id}', [App\Http\Controllers\JadwalPiketController::class, 'update'])->name('jadwalPiket.update');   

@@ -44,7 +44,11 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="unit_kerja" class="form-label">Unit Kerja</label>
-                                <input type="text" class="form-control @error('unit_kerja') is-invalid @enderror" value="{{ old('unit_kerja') }}" id="unit_kerja" name="unit_kerja" required>
+                                <select class="form-select" @error('unit_kerja') is-invalid @enderror" id="unit_kerja" name="unit_kerja" required>
+                                    <option value="" disabled selected>Pilih Unit Kerja</option>
+                                    <option value="Pengelola Gedung" {{ old('unit_kerja') == 'Pengelola Gedung' ? 'selected' : '' }}>Pengelola Gedung</option>
+                                    <option value="Petugas Kebersihan" {{ old('unit_kerja') == 'Petugas Kebersihan' ? 'selected' : '' }}>Petugas Kebersihan</option>
+                                </select>
                                 @error('unit_kerja')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror

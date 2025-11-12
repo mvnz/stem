@@ -63,3 +63,11 @@ Route::post('/jadwalPiket/generate', [App\Http\Controllers\JadwalPiketController
 Route::get('/jadwalPiket/create', [App\Http\Controllers\JadwalPiketController::class, 'create'])->name('jadwalPiket.create');
 Route::get('/jadwalPiket/edit/{id}', [App\Http\Controllers\JadwalPiketController::class, 'edit'])->name('jadwalPiket.edit');
 Route::put('/jadwalPiket/update/{id}', [App\Http\Controllers\JadwalPiketController::class, 'update'])->name('jadwalPiket.update');   
+
+Route::get('/insiden', [App\Http\Controllers\InsidenController::class, 'index'])->name('insiden.index');
+Route::get('/insiden/create', [App\Http\Controllers\InsidenController::class, 'create'])->name('insiden.create');
+Route::post('/insiden', [App\Http\Controllers\InsidenController::class, 'store'])->name('insiden.store');
+Route::get('/insiden/edit/{id}', [App\Http\Controllers\InsidenController::class, 'edit'])->name('insiden.edit');
+Route::put('/insiden/update/{id}', [App\Http\Controllers\InsidenController::class, 'update'])->name('insiden.update');
+Route::delete('/insiden/delete/{id}', [App\Http\Controllers\InsidenController::class, 'destroy'])->name('insiden.destroy');
+Route::get('/insiden/show/{id}', [App\Http\Controllers\InsidenController::class, 'show'])->name('insiden.show');

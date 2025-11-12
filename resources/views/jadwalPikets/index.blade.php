@@ -40,7 +40,6 @@
                                 </div>
         
                                 <div class="QA_table mb_30">
-                                    <!-- table-responsive -->
                                     <table class="table lms_table_active table-bordered table-striped table-hover">
                                         <thead>
                                             <tr class="text-end">

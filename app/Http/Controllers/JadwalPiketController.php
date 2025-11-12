@@ -33,17 +33,17 @@ class JadwalPiketController extends Controller
     public function generate(Request $request)
     {
         $request->validate([
-            'start_date'      => ['required','date'],
-            'end_date'        => ['required','date','after_or_equal:start_date'],
-            'quota_per_shift' => ['required','integer','min:1'],
-            'towers'          => ['nullable','array'],
-            'towers.*'        => ['integer','exists:towers,id'],
-            'overwrite'       => ['nullable','boolean'],
+            'start_date' => 'required|date',
+            'end_date'   => 'required|date|after_or_equal:start_date',
+            'quota_per_shift' => 'required|integer|min:1',
+            'towers' => 'nullable|array',
+            'towers.*' => 'integer|exists:towers,id',
+            'overwrite'  => 'nullable|boolean',
         ]);
 
-        $start     = Carbon::parse($request->start_date)->startOfDay();
-        $end       = Carbon::parse($request->end_date)->startOfDay();
-        $quota     = (int) $request->quota_per_shift;
+        $start = Carbon::parse($request->start_date)->startOfDay();
+        $end = Carbon::parse($request->end_date)->startOfDay();
+        $quota = (int) $request->quota_per_shift;
         $overwrite = (bool) $request->boolean('overwrite');
 
         $towers = $request->filled('towers')
@@ -102,7 +102,7 @@ class JadwalPiketController extends Controller
                 foreach ($towers as $tw) {
 
                     $need = [
-                        'Pagi'  => $quota,
+                        'Pagi' => $quota,
                         'Siang' => $quota,
                         'Malam' => $quota,
                     ];
@@ -133,9 +133,9 @@ class JadwalPiketController extends Controller
                             JadwalPiket::updateOrCreate(
                                 ['pegawai_id'=>$picked,'tanggal'=>$tanggal],
                                 [
-                                    'shift'      => $s,
-                                    'tower_id'   => $tw->id,
-                                    'jam_mulai'  => $mulai,
+                                    'shift' => $s,
+                                    'tower_id' => $tw->id,
+                                    'jam_mulai' => $mulai,
                                     'jam_selesai'=> $selesai,
                                 ]
                             );
@@ -186,8 +186,8 @@ class JadwalPiketController extends Controller
         $jadwalPiket = JadwalPiket::findOrFail($id);
 
         $validated = $request->validate([
-            'tanggal'  => ['required','date'],
-            'shift'    => ['required', Rule::in(['Pagi','Siang','Malam','Libur'])],
+            'tanggal' => 'required|date',
+            'shift' => 'required|in:Pagi,Siang,Malam,Libur',
             'tower_id' => [
                 Rule::requiredIf(fn () => $request->shift !== 'Libur'),
                 'nullable','exists:towers,id'
@@ -195,12 +195,12 @@ class JadwalPiketController extends Controller
         ]);
 
         if ($validated['shift'] === 'Libur') {
-            $validated['tower_id']    = null;
-            $validated['jam_mulai']   = null;
+            $validated['tower_id'] = null;
+            $validated['jam_mulai'] = null;
             $validated['jam_selesai'] = null;
         } else {
             [$mulai,$selesai] = JadwalPiket::jamShift($validated['shift']);
-            $validated['jam_mulai']   = $mulai;
+            $validated['jam_mulai'] = $mulai;
             $validated['jam_selesai'] = $selesai;
         }
 

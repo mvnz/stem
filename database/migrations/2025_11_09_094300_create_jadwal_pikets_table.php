@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('pegawai_id')->constrained('pegawais')->onDelete('cascade');
             $table->date('tanggal');
-            $table->foreignId('tower_id')->constrained('towers')->onDelete('cascade');
-            $table->enum('shift', ['Pagi', 'Sore', 'Malam', 'Libur']);
+            $table->foreignId('tower_id')->nullable()->constrained('towers')->onDelete('cascade');
+            $table->enum('shift', ['Pagi', 'Siang', 'Malam', 'Libur']);
             $table->time('jam_mulai')->nullable();
             $table->time('jam_selesai')->nullable();
 

@@ -150,19 +150,55 @@
 <style>
 .lms_table_active th,
 .lms_table_active td {
-  font-size: 14px !important; /* pakai !important biar pasti override */
-  color: #212529; /* biar kontras jelas */
+  font-size: 14px !important; 
+  color: #212529; 
   vertical-align: middle;
 }
 
 .lms_table_active {
   border-collapse: collapse;
   width: 100%;
-  border-top: 2px solid #dee2e6;   /* garis atas */
-  border-bottom: 2px solid #2a2a2b; /* garis bawah */
+  border-top: 2px solid #dee2e6;  
+  border-bottom: 2px solid #2a2a2b; 
 }
 
 </style>
+
+<script>
+document.addEventListener('click', async (e) => {
+  const btn = e.target.closest('.btn-lihat');
+  if (!btn) return;
+
+  const url   = btn.dataset.url;
+  const modal = document.getElementById('lihatModal');
+
+  // helper isi field
+  const fill = (name, val) => {
+    modal.querySelector(`[data-field="${name}"]`).textContent = (val ?? '-') || '-';
+  };
+
+  try {
+    const res = await fetch(url, {
+      headers: { 'X-Requested-With': 'XMLHttpRequest' }
+    });
+    if (!res.ok) throw new Error('Gagal mengambil data insiden');
+
+    const d = await res.json();
+
+    fill('tanggal_insiden',   d.tanggal_insiden);
+    fill('tanggal_close',     d.tanggal_close);
+    fill('tower',             d.tower);
+    fill('jenis_insiden',     d.jenis_insiden);
+    fill('status_insiden',    d.status_insiden);
+    fill('pelapor',           d.pelapor);
+    fill('deskripsi_insiden', d.deskripsi_insiden);
+    fill('catatan_perbaikan', d.catatan_perbaikan);
+  } catch (err) {
+    console.error(err);
+  }
+});
+</script>
+
 
 
 </body>

@@ -48,7 +48,7 @@
             <span>Report</span>
           </a>
           <ul>
-            <li><a href="#">Insiden</a></li>
+            <li><a href="/insiden">Insiden</a></li>
             <li><a href="#">Notifikasi</a></li>  
             <li><a href="#">Activity Log</a></li>
             <li><a href="#">User Log</a></li>

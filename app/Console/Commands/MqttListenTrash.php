@@ -13,7 +13,7 @@ class MqttListenTrash extends Command
                             {--host=test.mosquitto.org}
                             {--port=1883}
                             {--topic=trash/+/telemetry}';
-    protected $description = 'Listen to trash telemetry from MQTT broker';
+    protected $description = 'Listen trash telemetry dari MQTT broker';
 
     public function handle()
     {

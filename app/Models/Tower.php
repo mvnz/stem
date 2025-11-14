@@ -11,4 +11,9 @@ class Tower extends Model
         'jumlah_lantai',
         'status',
     ];
+
+   public function jadwalPiket()
+    {
+        return $this->hasMany(JadwalPiket::class, 'tower_id');
+    }
 }

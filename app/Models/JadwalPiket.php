@@ -40,6 +40,11 @@ class JadwalPiket extends Model
             default => [null, null],
         };
     }
+
+    public function jadwalPiket()
+    {
+        return $this->hasMany(JadwalPiket::class, 'tower_id');
+    }
 }
 
 

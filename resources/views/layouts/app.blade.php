@@ -45,6 +45,30 @@
 
     <link href="{{ asset('dash/css/style.min.css') }}" rel="stylesheet" />
     <script src="{{ asset('dash/js/all.js') }}" crossorigin="anonymous"></script>
+
+    <style>
+      .custom-page {
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #4A4A4A;
+    border: 1px solid #ddd;
+    transition: all 0.2s ease-in-out;
+}
+
+.custom-page:hover {
+    background: #eef2ff;
+    border-color: #b3c1ff;
+    color: #3b4cca;
+}
+
+.page-item.active .custom-page {
+    background: #3b4cca;
+    color: white;
+    border-color: #3b4cca;
+}
+    </style>
+    
 </head>
 <body class="crm_body_bg">
     
@@ -142,6 +166,8 @@
 <script src="{{ asset('dash/js/chart_am-kelly.js') }}"></script>
 <script src="{{ asset('dash/js/chart_am-chart-custom.js') }}"></script>
 <!-- custom js -->
+
+
 <script src="{{ asset('dash/js/9118-js-custom.js') }}"></script>
 <script src="{{ asset('dash/js/bootstrap.bundle.min.js') }}" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 

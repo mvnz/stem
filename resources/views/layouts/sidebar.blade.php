@@ -1,34 +1,18 @@
 <nav class="sidebar vertical-scroll  ps-container ps-theme-default ps-active-y">
     <div class="logo d-flex justify-content-between">
-        <a href="index.html"><img src="{{ asset('dash/images/wms-logo.png') }}" alt=""></a>
+        <a href="#"><img src="{{ asset('dash/images/wms-logo.png') }}" alt=""></a>
         <div class="sidebar_close_icon d-lg-none">
             <i class="ti-close"></i>
         </div>
     </div>
     <ul id="sidebar_menu">
         <li class="">
-          <a class="" href="#" aria-expanded="false">
+          <a class="" href="/dashboard" aria-expanded="false">
           <!-- <i class="fas fa-th"></i> -->
           <div class="icon_menu">
               <img src="{{ asset('dash/images/menu-icon-dashboard.svg') }}" alt="">
         </div>
             <span>Dashboard</span>
-          </a>          
-        </li>
-        <li class="">
-            <a class="" href="#" aria-expanded="false">
-              <div class="icon_menu">
-                  <img src="{{ asset('dash/images/menu-icon-2.svg') }}" alt="">
-              </div>
-              <span>Monitoring</span>
-            </a>
-          </li>
-        <li class="">
-          <a class="" href="#" aria-expanded="false">            
-            <div class="icon_menu">
-                <img src="{{ asset('dash/images/menu-icon-3.svg') }}" alt="">
-            </div>
-            <span>Pemilahan</span>
           </a>          
         </li>
         <li class="">
@@ -50,7 +34,7 @@
           <ul>
             <li><a href="/insiden">Insiden</a></li>
             <li><a href="#">Notifikasi</a></li>  
-            <li><a href="#">Activity Log</a></li>
+            <li><a href="/activityLog">Activity Log</a></li>
             <li><a href="#">User Log</a></li>
           </ul>
         </li>

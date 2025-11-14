@@ -9,8 +9,14 @@ use Illuminate\Support\Facades\Log;
 
 class MqttListenTrash extends Command
 {
-    protected $signature = 'mqtt:trash-listen
+    /*protected $signature = 'mqtt:trash-listen
                             {--host=test.mosquitto.org}
+                            {--port=1883}
+                            {--topic=trash/+/telemetry}';
+    protected $description = 'Listen trash telemetry dari MQTT broker';*/
+
+    protected $signature = 'mqtt:trash-listen
+                            {--host=broker.hivemq.com}
                             {--port=1883}
                             {--topic=trash/+/telemetry}';
     protected $description = 'Listen trash telemetry dari MQTT broker';

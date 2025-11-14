@@ -36,5 +36,7 @@ class Insiden extends Model
     {
         return $this->belongsTo(Pegawai::class, 'pegawai_id');
     }
+
+    
     
 }

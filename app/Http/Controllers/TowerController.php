@@ -6,6 +6,7 @@ use App\Models\Tower;
 use Illuminate\Http\Request;
 use illuminate\Validate\Rule;
 
+
 class TowerController extends Controller
 {
     public function index()
@@ -33,6 +34,7 @@ class TowerController extends Controller
         Tower::create($validated);
 
         return redirect()->route('tower.index')->with('success', 'Tower berhasil ditambahkan');
+
     }
 
     public function edit($id){

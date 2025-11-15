@@ -24,7 +24,7 @@ return new class extends Migration
             
             if (!Schema::hasColumn('users', 'username'))     $table->string('username', 50)->unique()->after('id');
             if (!Schema::hasColumn('users', 'pegawai_id'))   $table->unsignedInteger('pegawai_id')->unique()->after('password');
-            if (!Schema::hasColumn('users', 'role'))         $table->enum('role', ['Admin','User','petugasKebersihan'])->default('petugasKebersihan')->after('pegawai_id');
+            if (!Schema::hasColumn('users', 'role'))         $table->enum('role', ['Admin','Spv','Petugas Kebersihan'])->default('Petugas Kebersihan')->after('pegawai_id');
             if (!Schema::hasColumn('users', 'last_login'))   $table->timestamp('last_login')->nullable()->after('role');
             if (!Schema::hasColumn('users', 'status'))       $table->enum('status', ['Active','Inactive'])->default('Active')->after('last_login');
             if (!Schema::hasColumn('users', 'created_at'))   $table->timestamps()->nullable()->after('status');

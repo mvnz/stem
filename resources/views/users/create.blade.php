@@ -70,12 +70,12 @@
                                     "value" => "Admin",
                                 ],
                                 (object)[
-                                    "label" => "User",
-                                    "value" => "User",
+                                    "label" => "Spv",
+                                    "value" => "Spv",
                                 ],
                                 (object)[
                                     "label" => "Petugas Kebersihan",
-                                    "value" => "petugasKebersihan",
+                                    "value" => "Petugas Kebersihan",
                                 ],
                                 ] as $option)
                                     <option value="{{ $option->value }}" @selected(old('role') == $option->value)>{{ $option->label }}</option>

@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('jadwal_pikets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pegawai_id')->constrained('pegawais')->onDelete('cascade');
+            $table->integer('pegawai_id');
             $table->date('tanggal');
-            $table->foreignId('tower_id')->nullable()->constrained('towers')->onDelete('cascade');
+            $table->integer('tower_id')->nullable();
             $table->enum('shift', ['Pagi', 'Siang', 'Malam', 'Libur']);
             $table->time('jam_mulai')->nullable();
             $table->time('jam_selesai')->nullable();

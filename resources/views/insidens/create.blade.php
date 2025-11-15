@@ -118,20 +118,14 @@
                                 @enderror
                             </div>
                             <div class="col-md-6">
-                                <label for="catatan" class="form-label">Catatan</label>
-                                <input type="text" class="form-control @error('catatan') is-invalid @enderror" value="{{ old('catatan') }}" id="catatan" name="catatan">
-                                @error('catatan')
+                                <label for="catatan_perbaikan" class="form-label">Catatan Perbaikan</label>
+                                <input type="text" class="form-control @error('catatan_perbaikan') is-invalid @enderror" value="{{ old('catatan_perbaikan') }}" id="catatan_perbaikan" name="catatan_perbaikan">
+                                @error('catatan_perbaikan')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                             </div>
-                            <div class="col-md-6">
-                                <label for="user_id" class="form-label">Petugas Kebersihan (ntar ini otomatis ngisi klo udah login)</label>
-                                <input type="text" class="form-control @error('user_id') is-invalid @enderror" value="1" id="user_id" name="user_id">
-                                @error('user_id')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
+                          
                             </div>
                             <div class="action_btns d-flex">
                                 <a href="/insiden" class="btn btn-secondary rounded-pill text-white mt-3 me-2"><i class="ti-angle-left mr-2"></i> Kembali</a>

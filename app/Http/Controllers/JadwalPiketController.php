@@ -15,9 +15,9 @@ class JadwalPiketController extends Controller
     public function index()
     {
         $jadwalPikets = JadwalPiket::with(['tower', 'pegawai'])
-            ->orderBy('tanggal', 'desc')
-            ->orderByRaw("FIELD(shift, 'Pagi', 'Sore', 'Malam', 'Libur')")
-            ->orderBy('tower_id')
+            ->orderBy('tanggal', 'asc')
+            ->orderByRaw("FIELD(shift, 'Pagi', 'Siang', 'Malam', 'Libur')")
+            ->orderBy('tanggal', 'asc')
             ->get();
 
         return view('jadwalPikets.index', compact('jadwalPikets'));

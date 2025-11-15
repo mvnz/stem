@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use PhpMqtt\Client\MqttClient;
 use PhpMqtt\Client\ConnectionSettings;
 use Illuminate\Support\Facades\Log;
+use App\Services\TrashIngestService;
 
 class MqttListenTrash extends Command
 {
@@ -39,7 +40,7 @@ class MqttListenTrash extends Command
         $mqtt->subscribe($topic, function (string $topic, string $message) {
             try {
                 $data = json_decode($message, true, 512, JSON_THROW_ON_ERROR);
-                app(\App\Services\TrashIngestService::class)->ingest($data);
+                app(TrashIngestService::class)->ingest($data);
                 $this->line("OK: $topic");
             } catch (\Throwable $e) {
                 Log::error('MQTT ingest error: '.$e->getMessage(), ['topic'=>$topic,'payload'=>$message]);

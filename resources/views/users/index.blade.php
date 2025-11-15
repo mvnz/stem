@@ -60,7 +60,7 @@
                                                 <td>{{ $item->pegawai->nama_pegawai }}</td>
                                                 <td>{{ $item->username }}</td>
                                                 <td>{{ $item->password }}</td>
-                                                <td>{{ $item->role === 'petugasKebersihan' ? 'Petugas Kebersihan' : $item->role }}</td>
+                                                <td>{{ $item->role === 'Petugas Kebersihan' ? 'Petugas Kebersihan' : $item->role }}</td>
                                                 <td>{{ $item->status == 'Active' ? 'Aktif' : 'Tidak Aktif' }}</td>
                                                 <td>
                                                     <div class="action_btns d-flex">

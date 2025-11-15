@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Services\TrashWhatsappNotifier;
 
 class TrashReading extends Model
 {
@@ -13,5 +14,12 @@ class TrashReading extends Model
         'payload' => 'array',
         'measured_at' => 'datetime:Y-m-d H:i:s',
     ];
+
+    protected static function booted()
+    {
+        static::created(function (TrashReading $reading) {
+            app(TrashWhatsappNotifier::class)->handleNewReading($reading);
+        });
+    }
 }
 

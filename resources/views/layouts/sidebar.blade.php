@@ -33,7 +33,7 @@
           </a>
           <ul>
             <li><a href="/insiden">Insiden</a></li>
-            <li><a href="#">Notifikasi</a></li>  
+            <li><a href="/notifikasi">Notifikasi</a></li>  
             <li><a href="/activityLog">Activity Log</a></li>
             <li><a href="#">User Log</a></li>
           </ul>

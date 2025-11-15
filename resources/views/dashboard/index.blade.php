@@ -86,7 +86,7 @@
 
     async function loadTrashData() {
         try {
-            const res = await fetch('{{ route('dashboard.trash-data') }}'); // <<< PENTING: route JSON
+            const res = await fetch('{{ route('dashboard.trash-data') }}'); // route baru untuk data chart
             const data = await res.json();
 
             const labels = data.labels;
@@ -133,11 +133,9 @@
         }
     }
 
-    // load awal
     loadTrashData();
 
-    // auto refresh tiap 5 detik
-    setInterval(loadTrashData, 5000);
+    setInterval(loadTrashData, 5000); //update tiap 5 detik
 </script>
 
                         </div>

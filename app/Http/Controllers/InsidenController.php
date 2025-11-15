@@ -8,6 +8,7 @@ use App\Models\Insiden;
 use App\Models\Tower;   
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class InsidenController extends Controller
 {
@@ -42,9 +43,11 @@ class InsidenController extends Controller
             'jenis_insiden' => 'required|in:Sampah,Sensor,Lantai,Lainnya',
             'deskripsi_insiden' => 'required|string|max:255',
             'status_insiden' => 'required|in:Open,Proses Perbaikan,Selesai',
-            'user_id' => 'nullable|exists:users,id',
+            //'user_id' => 'nullable|exists:users,id',
             'catatan_perbaikan' => 'nullable|string|max:255',
         ]);
+
+        $validated['user_id'] = Auth::id();
 
         Insiden::create($validated);
 

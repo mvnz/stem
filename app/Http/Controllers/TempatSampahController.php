@@ -7,6 +7,7 @@ use App\Models\Tower;
 use App\Models\Sensor;
 use Illuminate\Http\Request;
 use Illuminate\Validate\Rule;
+use App\Services\FonnteService;
 
 class TempatSampahController extends Controller
 {
@@ -78,4 +79,15 @@ class TempatSampahController extends Controller
 
         return redirect()->route('tempatSampah.index')->with('success', 'Tempat Sampah berhasil dihapus');
     }
+
+    public function notifyBinFull(FonnteService $fonnte)
+    {
+        $phone = '6285320632411';
+        $message = "Bin-01 sudah hampir penuh, harap segera dikosongkan.";
+
+        $fonnte->send($phone, $message);
+
+        // history otomatis ke-save di table `whatsapp_messages`
+    }
+
 }

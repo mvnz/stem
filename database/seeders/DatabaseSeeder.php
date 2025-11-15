@@ -2,24 +2,33 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+//use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
+use Illuminate\Support\Facades\DB;
+
 
 class DatabaseSeeder extends Seeder
 {
-    use WithoutModelEvents;
+    //use WithoutModelEvents;
 
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $faker = Faker::create('id_ID');   
+        $data = [];
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        for ($i = 1; $i <= 25; $i++) {
+            $data[] = [
+                'nama_pegawai' => $faker->name(),
+                'alamat'       => $faker->address(),
+                'no_telp'      => '08' . $faker->numberBetween(10000000, 99999999),
+                'unit_kerja'   => 'Petugas Kebersihan',
+                'status'       => 'Active',
+                'created_at'   => now(),
+                'updated_at'   => now(),
+            ];
+        }
+
+        DB::table('pegawais')->insert($data);
     }
 }

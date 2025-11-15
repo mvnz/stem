@@ -34,7 +34,7 @@ class UserController extends Controller
             'pegawai_id' => 'required|exists:pegawais,id',
             'username' => 'required|string|max:100|unique:users,username',
             'password' => 'required|string|min:6|confirmed',
-            'role' => 'required|in:Admin,User,petugasKebersihan',
+            'role' => 'required|in:Admin,Spv,Petugas Kebersihan',
             'status' => 'required|in:Active,Inactive',
         ]);
 

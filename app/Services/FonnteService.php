@@ -18,7 +18,13 @@ class FonnteService
             'message' => $message,
         ];
 
-        $response = Http::withoutVerifying()      // << BYPASS SSL (DEV ONLY)
+        Log::info('Fonnte request', [
+            'url'     => $url,
+            'target'  => $phone,
+            'message' => $message,
+        ]);
+
+        $response = Http::withoutVerifying()
             ->withHeaders([
                 'Authorization' => $token,
             ])
@@ -28,18 +34,30 @@ class FonnteService
         $body = $response->json();
         Log::info('Fonnte response', ['body' => $body, 'http' => $response->status()]);
 
-        if ($response->successful() && ($body['status'] ?? false)) {
-            $status = 'success';
-        } else {
-            $status = 'failed';
-        }
+        $status = ($response->successful() && ($body['status'] ?? false))
+            ? 'success'
+            : 'failed';
 
-        return NotifWhatsapp::create([
-            'no_hp'    => $phone,
-            'pesan'    => $message,
-            'status'   => $status,
-            'response' => $body,
-            'sent_at'  => now(),
-        ]);
+        try {
+            $notif = NotifWhatsapp::create([
+                'no_telp'  => $phone,
+                'pesan'    => $message,
+                'status'   => $status,
+                'response' => $body,
+                'sent_at'  => now(),
+            ]);
+
+            Log::info('NotifWhatsapp tersimpan', [
+                'notif_id' => $notif->id,
+                'status'   => $notif->status,
+            ]);
+
+            return $notif;
+        } catch (\Throwable $e) {
+            Log::error('Gagal insert ke notif_whatsapps', [
+                'error' => $e->getMessage(),
+            ]);
+            throw $e; // biar tetep ketangkep di TrashWhatsappNotifier
+        }
     }
 }

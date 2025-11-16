@@ -98,14 +98,6 @@
                                 @enderror
                             </div>
                             </div>
-                            <div class="col-md-6">
-                                <label for="petugas_kebersihan" class="form-label">Petugas Kebersihan (ntar ini otomatis ngisi klo udah login)</label>
-                                <input type="text" class="form-control @error('petugas_kebersihan') is-invalid @enderror" value="1" id="petugas_kebersihan" name="petugas_kebersihan">
-                                @error('petugas_kebersihan')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            </div>
                             <div class="action_btns d-flex">
                                 <a href="/insiden" class="btn btn-secondary rounded-pill text-white mt-3 me-2"><i class="ti-angle-left mr-2"></i> Kembali</a>
                                 <button type="submit" class="btn btn-warning rounded-pill mt-3 text-white"><i class="ti-save"></i> Ubah</button>

@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('notif_Whatsapps', function (Blueprint $table) {
+        Schema::create('notif_whatsapps', function (Blueprint $table) {
             $table->id();
-            $table->string('no_hp');              // nomor tujuan (62xxx)
+            $table->string('no_telp');              // nomor tujuan (pake format 62xxx)
             $table->text('pesan');              // isi pesan
             $table->string('status')->nullable(); // success / failed / pending
             $table->json('response')->nullable(); // response raw dari Fonnte
@@ -24,6 +24,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('notif_Whatsapps');
+        Schema::dropIfExists('notif_whatsapps');
     }
 };

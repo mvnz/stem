@@ -5,10 +5,15 @@ namespace App\Services;
 use App\Models\TrashReading;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\TrashBinThresholdExceeded;
+use App\Services\TrashWhatsappNotifier;
 use Carbon\Carbon;
 
 class TrashIngestService
 {
+    public function __construct(
+        protected TrashWhatsappNotifier $whatsappNotifier
+    ){}
+
     public function ingest(array $data): void
     {
         $binHeight = (float)($data['bin_height_cm'] ?? 80);
@@ -34,9 +39,11 @@ class TrashIngestService
 
         $threshold = (float)config('trash.threshold_pct', 80);
         if ($reading->fill_pct >= $threshold) {
-            // ganti route mail/telegram/sms sesuai kebutuhan lu
+            
             Notification::route('mail', config('trash.alert_email', 'ops@example.com'))
                 ->notify(new TrashBinThresholdExceeded($reading, $threshold));
         }
+
+        //$this->whatsappNotifier->handleNewReading($reading);
     }
 }

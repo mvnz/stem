@@ -10,10 +10,11 @@ class NotifWhatsappController extends Controller
 {
     public function index()
     {
-        $messages = NotifWhatsapp::orderBy('created_at', 'desc')
-            ->paginate(10);
+        $messages = NotifWhatsapp::orderBy('created_at', 'desc')->get();
 
-        return view('notifikasis.index', compact('messages'));
+        return view('notifikasis.index', [
+            'messages' => $messages,
+        ]);
     }
 
     public function create()
@@ -24,13 +25,13 @@ class NotifWhatsappController extends Controller
     public function store(Request $request, FonnteService $fonnte)
     {
         $data = $request->validate([
-            'no_hp'   => 'required|string',  // pastikan format 62xxxxxxxx
+            'no_telp'   => 'required|string',  // pastikan format 62xxxxxxxx
             'message' => 'required|string|max:1000',
         ]);
 
-        $msg = $fonnte->send($data['no_hp'], $data['message']);
+        $msg = $fonnte->send($data['no_telp'], $data['message']);
         return redirect()
             ->route('notifikasi.index')
-            ->with('status', "Pesan dikirim ke {$msg->no_hp} dengan status: {$msg->status}");
+            ->with('status', "Pesan dikirim ke {$msg->no_telp} dengan status: {$msg->status}");
     }
 }

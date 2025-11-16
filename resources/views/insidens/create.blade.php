@@ -28,6 +28,7 @@
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
+                            @AdminSpv
                             <div class="col-md-6">
                                 <label for="tanggal_close" class="form-label ">Tanggal Close</label>
                                 <input type="date" class="form-control @error('tanggal_close') is-invalid @enderror" value="{{ old('tanggal_close') }}" id="tanggal_close" name="tanggal_close">
@@ -35,6 +36,7 @@
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
+                            @endAdminSpv
                             </div>
 
                             <div class="row mb-3">
@@ -92,6 +94,7 @@
                             </div>
 
                             <div class="row mb-3">
+                            @AdminSpv
                             <div class="col-md-6">
                                 <label for="status_insiden" class="form-label">Status Insiden</label>
                                 <select class="form-select @error('status_insiden') is-invalid @enderror" id="status_insiden" name="status_insiden" required>
@@ -125,7 +128,7 @@
                                 @enderror
                             </div>
                             </div>
-                          
+                          @endAdminSpv
                             </div>
                             <div class="action_btns d-flex">
                                 <a href="/insiden" class="btn btn-secondary rounded-pill text-white mt-3 me-2"><i class="ti-angle-left mr-2"></i> Kembali</a>

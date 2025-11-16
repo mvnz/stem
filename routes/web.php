@@ -10,13 +10,15 @@ use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NotifWhatsappController;
+use App\Http\Controllers\ActivityLogController;
 
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
+
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::get('/dashboard/trash-data', [DashboardController::class, 'trashData'])->name('dashboard.trash-data');
 
@@ -77,10 +79,22 @@ Route::middleware('auth')->group(function () {
     Route::delete('/user/delete/{id}', [UserController::class, 'destroy'])->name('user.destroy');
 
     Route::get('/notifikasi', [NotifWhatsappController::class, 'index'])->name('notifikasi.index');
-    Route::get('/notifikasi/send', [NotifWhatsappController::class, 'create'])->name('notifikasi.create');
-    Route::post('/notifikasi/send', [NotifWhatsappController::class, 'store'])->name('notifikasi.store');
+    Route::get('/notifikasi/create', [NotifWhatsappController::class, 'create'])->name('notifikasi.create');
+    Route::post('/notifikasi', [NotifWhatsappController::class, 'store'])->name('notifikasi.store');
+
+    Route::get('/activityLog', [ActivityLogController::class, 'index'])->name('activityLog.index');
+
+    Route::get('/api/thingspeak/perField', [DashboardController::class, 'hitungPerField']);
+    Route::get('/api/thingspeak/allField', [DashboardController::class, 'hitungTotal']);
+    Route::get('/api/thingspeak/sumFields', [DashboardController::class, 'sumFields']);
+
+
 });
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/logout', function(){
+    return redirect()->route('login');
+});

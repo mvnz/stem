@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Traits\LogsActivity;
 
 class TempatSampah extends Model
 {
+    use LogsActivity;
+    
     protected $fillable = [
         'nama_tempat_sampah',
         'id_tower',

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class NotifWhatsapp extends Model
 {
     protected $fillable = [
-        'no_hp',
+        'no_telp',
         'pesan',
         'status',
         'response',

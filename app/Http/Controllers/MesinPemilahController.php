@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\MesinPemilah;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class MesinPemilahController extends Controller
 {
@@ -10,8 +11,40 @@ class MesinPemilahController extends Controller
     {
         $mesinPemilahs = MesinPemilah::all();
 
+        $channelUrl = "https://api.thingspeak.com/channels/3165781.json";
+
+        $response = Http::withoutVerifying()->get($channelUrl, [
+            'api_key' => 'BEFGTPZ57LAPPU16'
+        ]);
+
+        $channelData = $response->json();
+
+        // Ambil yang dibutuhkan
+        $id = $channelData['id'] ?? '-';
+        $channelName = $channelData['name'] ?? 'Tidak ada nama';
+        $description = $channelData['description'] ?? '-';
+        $lastEntryId = $channelData['last_entry_id'] ?? '-';
+
+        $fieldUrl = "https://api.thingspeak.com/channels/3165781/fields/";
+        $apikey = "BEFGTPZ57LAPPU16";
+
+        $field1 = Http::withoutVerifying()->get($fieldUrl . "1.json", ['api_key' => $apikey])->json();
+        $field2 = Http::withoutVerifying()->get($fieldUrl . "2.json", ['api_key' => $apikey])->json();
+        $field3 = Http::withoutVerifying()->get($fieldUrl . "3.json", ['api_key' => $apikey])->json();
+
+        $field1Name = $field1['channel']['field1'] ?? '-';
+        $field2Name = $field2['channel']['field2'] ?? '-';
+        $field3Name = $field3['channel']['field3'] ?? '-';
+
         return view('mesinPemilahs.index', [
             'mesinPemilahs' => $mesinPemilahs,
+            'id' => $id,
+            'channelName' => $channelName,
+            'description' => $description,
+            'field1Name' => $field1Name,
+            'field2Name' => $field2Name,
+            'field3Name' => $field3Name,
+            'lastEntryId' => $lastEntryId,
         ]);
     }
 
@@ -61,4 +94,6 @@ class MesinPemilahController extends Controller
 
         return redirect()->route('mesinPemilah.index')->with('success', 'Mesin Pemilah berhasil dihapus');
     }
+
+    
 }

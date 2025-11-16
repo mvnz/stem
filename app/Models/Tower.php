@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Traits\LogsActivity;
 
 class Tower extends Model
 {
+    use LogsActivity;
+    
     protected $fillable = [
         'nama_tower',
         'jumlah_lantai',

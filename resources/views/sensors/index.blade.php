@@ -48,7 +48,9 @@
                                                 <th scope="col">Nama Sensor</th>
                                                 <th scope="col">Threshold (dalam cm)</th>
                                                 <th scope="col">Status</th>
+                                                @Admin
                                                 <th scope="col">Aksi</th>
+                                                @endAdmin
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -58,6 +60,7 @@
                                                 <td>{{ $item->nama_sensor }}</td>
                                                 <td>{{ $item->threshold }}</td>
                                                 <td>{{ $item->status == 'Active' ? 'Aktif' : 'Tidak Aktif' }}</td>
+                                                @Admin
                                                 <td>
                                                     <div class="action_btns d-flex">
                                                         <a href="{{ route('sensor.edit', $item->id) }}" class="d-inline-block me-2 btn btn-warning btn-sm rounded-pill text-white"><i class="ti-pencil mr-2"></i> Ubah</a>
@@ -69,6 +72,7 @@
                                                         </form>
                                                     </div>
                                                 </td>
+                                                @endAdmin
                                             </tr>
                                             @endforeach
                                         </tbody>

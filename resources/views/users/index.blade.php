@@ -50,7 +50,9 @@
                                                 <th scope="col">Password</th>
                                                 <th scope="col">Role</th>
                                                 <th scope="col">Status</th>
+                                                @Admin
                                                 <th scope="col">Aksi</th>
+                                                @endAdmin
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -59,9 +61,10 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $item->pegawai->nama_pegawai }}</td>
                                                 <td>{{ $item->username }}</td>
-                                                <td>{{ $item->password }}</td>
+                                                <td>{{ '*******' }}</td>
                                                 <td>{{ $item->role === 'Petugas Kebersihan' ? 'Petugas Kebersihan' : $item->role }}</td>
                                                 <td>{{ $item->status == 'Active' ? 'Aktif' : 'Tidak Aktif' }}</td>
+                                                @Admin
                                                 <td>
                                                     <div class="action_btns d-flex">
                                                         <a href="{{ route('user.edit', $item->id) }}" class="d-inline-block me-2 btn btn-warning btn-sm rounded-pill text-white"><i class="ti-pencil mr-2"></i> Ubah</a>
@@ -73,6 +76,7 @@
                                                         </form>
                                                     </div>
                                                 </td>
+                                                @endAdmin
                                             </tr>
                                             @endforeach
                                         </tbody>

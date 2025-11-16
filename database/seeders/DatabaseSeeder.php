@@ -17,11 +17,11 @@ class DatabaseSeeder extends Seeder
         $faker = Faker::create('id_ID');   
         $data = [];
 
-        for ($i = 1; $i <= 25; $i++) {
+        for ($i = 1; $i <= 3; $i++) {
             $data[] = [
                 'nama_pegawai' => $faker->name(),
                 'alamat'       => $faker->address(),
-                'no_telp'      => '08' . $faker->numberBetween(10000000, 99999999),
+                'no_telp'      => '62' . $faker->numberBetween(10000000, 99999999),
                 'unit_kerja'   => 'Petugas Kebersihan',
                 'status'       => 'Active',
                 'created_at'   => now(),

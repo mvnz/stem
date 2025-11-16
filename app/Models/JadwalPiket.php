@@ -4,9 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Models\Traits\LogsActivity;
 
 class JadwalPiket extends Model
 {
+    use LogsActivity;
+    
     protected $fillable = [
         'pegawai_id', 
         'tower_id', 
@@ -41,10 +44,7 @@ class JadwalPiket extends Model
         };
     }
 
-    public function jadwalPiket()
-    {
-        return $this->hasMany(JadwalPiket::class, 'tower_id');
-    }
+    
 }
 
 

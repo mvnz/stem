@@ -19,7 +19,7 @@ class InsidenController extends Controller
 
     public function index()
     {
-        $insidens = Insiden::all();
+        $insidens = Insiden::all()->sortByDesc('tanggal_insiden');
 
         return view('insidens.index', [
             'insidens' => $insidens,
@@ -42,9 +42,9 @@ class InsidenController extends Controller
             'tower_id' => 'required|exists:towers,id',
             'jenis_insiden' => 'required|in:Sampah,Sensor,Lantai,Lainnya',
             'deskripsi_insiden' => 'required|string|max:255',
-            'status_insiden' => 'required|in:Open,Proses Perbaikan,Selesai',
+            //'status_insiden' => 'required|in:Open,Proses Perbaikan,Closed',
             //'user_id' => 'nullable|exists:users,id',
-            'catatan_perbaikan' => 'nullable|string|max:255',
+            //'catatan_perbaikan' => 'nullable|string|max:255',
         ]);
 
         $validated['user_id'] = Auth::id();
@@ -71,9 +71,11 @@ class InsidenController extends Controller
         $validated = $request->validate([
             'tanggal_close' => 'nullable|date',
             'jenis_insiden' => 'enum:Sampah,Sensor,Lantai,Lainnya',
-            'status_insiden' => 'required|in:Open,Proses Perbaikan,Selesai',
+            'status_insiden' => 'required|in:Open,Proses Perbaikan,Closed',
             'catatan_perbaikan' => 'required|string|max:255',
         ]);
+
+        $validated['user_id'] = Auth::id();
 
         $insiden->update($validated);
 

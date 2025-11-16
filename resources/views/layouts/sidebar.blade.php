@@ -15,6 +15,7 @@
             <span>Dashboard</span>
           </a>          
         </li>
+        @AdminSpv
         <li class="">
           <a class="" href="/jadwalPiket" aria-expanded="false">            
             <div class="icon_menu">
@@ -22,7 +23,7 @@
             </div>
             <span>Jadwal Piket</span>
           </a>      
-              
+        @endAdminSpv
         </li>
         <li class="">
           <a class="has-arrow" href="#" aria-expanded="false">            
@@ -33,20 +34,24 @@
           </a>
           <ul>
             <li><a href="/insiden">Insiden</a></li>
-            <li><a href="/notifikasi">Notifikasi</a></li>  
+            @AdminSpv
+            <li><a href="/notifikasi">Notifikasi</a></li>
+            @endAdminSpv
+            @Admin  
             <li><a href="/activityLog">Activity Log</a></li>
-            <li><a href="#">User Log</a></li>
+            @endAdmin
           </ul>
         </li>
 
+        @AdminSpv
         <li class="">
           <a class="has-arrow" href="#" aria-expanded="false">
-            
             <div class="icon_menu">
                 <img src="{{ asset('dash/images/menu-icon-5.svg') }}" alt="">
             </div>
             <span>Master Data</span>
           </a>
+          
           <ul>
             <li><a href="/tower">Tower</a></li>
             <li><a href="/sensor">Sensor Iot</a></li>
@@ -56,8 +61,10 @@
             <li><a href="/user">User</a></li>
           </ul>
         </li>
-        
-        <li class="">
+        @endAdminSpv
+
+        @Admin
+        <!--<li class="">
             <a class="has-arrow" href="#" aria-expanded="false">
               <div class="icon_menu">
                   <img src="{{ asset('dash/images/menu-icon-11.svg') }}" alt="">
@@ -68,10 +75,8 @@
               <li><a href="#">Data Tranining</a></li>
               <li><a href="#">Klasifikasi</a></li>
             </ul>
-          </li>
-
-          
-
+          </li>-->
+        @endAdmin
       </ul>
     
 </nav>

@@ -55,34 +55,26 @@
                                     @foreach ($insidens as $item)
                                     <tr class="text-end">
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->tanggal_insiden }}</td>
+                                        <td>{{ $item->tanggal_insiden->format('Y-m-d') }}</td>
                                         <td>{{ $item->tower->nama_tower ?? '-' }}</td>
                                         <td>{{ $item->jenis_insiden }}</td>
                                         <td>{{ $item->status_insiden }}</td>
                                         <td>{{ $item->user->pegawai->nama_pegawai ?? $item->user->name ?? '-' }}</td>
                                         <td>
-                                        <button
-                                            type="button"
-                                            class="btn btn-info btn-sm rounded-pill text-white btn-lihat"
-                                            data-url="{{ route('insiden.show', $item->id) }}"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#lihatModal">
-                                            <i class="ti ti-eye"></i> Lihat
+                                        <button type="button" class="btn btn-info btn-sm rounded-pill text-white btn-lihat" data-url="{{ route('insiden.show', $item->id) }}"
+                                            data-bs-toggle="modal" data-bs-target="#lihatModal"><i class="ti ti-eye"></i> Lihat
                                         </button>
-
-                                        <a href="{{ route('insiden.edit', $item->id) }}"
-                                            class="btn btn-warning btn-sm rounded-pill text-white">
+                                        @AdminSpv
+                                        <a href="{{ route('insiden.edit', $item->id) }}" class="btn btn-warning btn-sm rounded-pill text-white">
                                             <i class="ti ti-pencil"></i> Ubah
                                         </a>
-
-                                        <form action="{{ route('insiden.destroy', $item->id) }}"
-                                                method="POST" class="d-inline"
-                                                onsubmit="return confirm('Yakin hapus insiden ini?')">
+                                        @endAdminSpv
+                                        @Admin
+                                        <form action="{{ route('insiden.destroy', $item->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus insiden ini?')">
                                             @csrf @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm rounded-pill">
-                                            <i class="ti ti-trash"></i> Hapus
-                                            </button>
+                                            <button type="submit" class="btn btn-danger btn-sm rounded-pill"><i class="ti ti-trash"></i> Hapus</button>
                                         </form>
+                                        @endAdmin
                                         </td>
                                     </tr>
                                     @endforeach

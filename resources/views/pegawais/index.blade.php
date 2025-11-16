@@ -49,7 +49,9 @@
                                                 <th scope="col">No Telepon</th>
                                                 <th scope="col">Unit Kerja</th>
                                                 <th scope="col">Status</th>
+                                                @Admin
                                                 <th scope="col">Aksi</th>
+                                                @endAdmin
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -61,6 +63,7 @@
                                                 <td>{{ $item->no_telp }}</td>
                                                 <td>{{ $item->unit_kerja }}</td>
                                                 <td>{{ $item->status == 'Active' ? 'Aktif' : 'Tidak Aktif' }}</td>
+                                                @Admin
                                                 <td>
                                                     <div class="action_btns d-flex">
                                                         <a href="{{ route('pegawai.edit', $item->id) }}" class="d-inline-block me-2 btn btn-warning btn-sm rounded-pill text-white"><i class="ti-pencil mr-2"></i> Ubah</a>
@@ -72,6 +75,7 @@
                                                         </form>
                                                     </div>
                                                 </td>
+                                                @endAdmin
                                             </tr>
                                             @endforeach
                                         </tbody>

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>STEM - Smart Waste Management System</title>
 
-    <link rel="icon" href="{{ asset('dash/favicons/991-img-logo.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('dash/favicons/favicon.png') }}" type="image/png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('dash/css/css-bootstrap1.min.css') }}">
     <!-- themefy CSS -->

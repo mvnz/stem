@@ -20,7 +20,7 @@
                         <div class="white_card_body">
                             <div class="QA_section">
                                 <div class="white_box_tittle list_header">
-                                    <a href="/mesinPemilah/create" class="btn btn-success btn-sm rounded-pill text-white"><i class="ti-plus me-2"></i> Tambah</a>
+                                    <div></div>
                                     <div class="box_right d-flex lms_block">
                                         <div class="serach_field_2">
                                             <div class="search_inner">
@@ -45,31 +45,19 @@
                                             <tr class="text-end">
                                                 <th scope="col">No. </th>
                                                 <th scope="col">Nama Mesin</th>
-                                                <th scope="col">Konfigurasi</th>
-                                                <th scope="col">Status</th>
-                                                <th scope="col">Aksi</th>
+                                                <th scope="col">Deskripsi</th>
+                                                <th scope="col">Klasifikasi</th>
+                                                <th scope="col">Daftar Entry Terakhir</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($mesinPemilahs as $index =>$item)
                                             <tr class="text-end">
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $item->nama_mesin }}</td>
-                                                <td>{{ $item->konfigurasi }}</td>
-                                                <td>{{ $item->status == 'Active' ? 'Aktif' : 'Tidak Aktif' }}</td>
-                                                <td>
-                                                    <div class="action_btns d-flex">
-                                                        <a href="{{ route('mesinPemilah.edit', $item->id) }}" class="d-inline-block me-2 btn btn-warning btn-sm rounded-pill text-white"><i class="ti-pencil mr-2"></i> Ubah</a>
-                                                        <form action="{{ route('mesinPemilah.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Yakin hapus mesin pemilah ini?')" class="d-inline">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger btn-sm rounded-pill"><i class="ti-trash me-1"></i> Hapus
-                                                        </button>
-                                                        </form>
-                                                    </div>
-                                                </td>
+                                                <td>{{ $id }}</td>
+                                                <td>{{ $channelName }}</td>
+                                                <td>{{ $description }}</td>
+                                                <td>{{ $field1Name }}, {{ $field2Name }}, {{ $field3Name }}</td>
+                                                <td>{{ $lastEntryId }}</td>
                                             </tr>
-                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
